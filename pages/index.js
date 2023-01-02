@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import HomePage from "../components/home/home-page";
 export default function Home({ data }) {
   return (
     <>
@@ -11,24 +10,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <nav>
-          <img src="" alt="" />
-          <Link href="/">Home</Link>
-          <Link href="/events">Events</Link>
-          <Link href="/about-us">About Us</Link>
-        </nav>
-      </header>
-      <main>
-        {data.map((ev) => (
-          <Link key={ev.id} href={`/events/${ev.id}`}>
-            <h2>{ev.title}</h2>
-            <Image src={ev.image} width="300" height="300" alt={ev.id} />
-
-            <p>{ev.description}</p>
-          </Link>
-        ))}
-      </main>
+      <HomePage data={data} />
     </>
   );
 }
